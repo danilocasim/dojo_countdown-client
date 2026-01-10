@@ -16,8 +16,8 @@ export const countdownsApi = {
   },
 
   // Get single countdown by ID
-  getById: async (id) => {
-    const response = await api.get(`/api/v1/countdowns/${id}`);
+  getById: async (id, opt = {}) => {
+    const response = await api.get(`/api/v1/countdowns/${id}`, { ...opt });
     return response;
   },
 

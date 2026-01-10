@@ -16,7 +16,9 @@ export function useCountdown() {
     setError(null);
 
     try {
-      const response = await countdownsApi.getById(id);
+      const response = await countdownsApi.getById(id, {
+        "Access-Control-Allow-Origin": "*",
+      });
 
       if (!response.ok) {
         const data = await response.json();
