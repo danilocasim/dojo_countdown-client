@@ -4,7 +4,7 @@ A React-based web application for creating and managing dynamic countdown timer 
 
 | Resource | Link |
 |----------|------|
-| Backend Repository | [dojo-countdown-client](https://github.com/danilocasim/dojo-countdown-api) |
+| Backend Repository | [dojo_countdown-api](https://github.com/danilocasim/dojo-countdown-api) |
 | Live Application | [dojocountdown.vercel.app](https://dojocountdown.vercel.app) |
 | Live API | [dojo-countdown-api.onrender.com](https://dojo-countdown-api.onrender.com) |
 
