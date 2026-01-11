@@ -2,6 +2,13 @@
 
 A React-based web application for creating and managing dynamic countdown timer images. This frontend interfaces with the DojoCountdown API to provide a complete countdown timer management solution.
 
+| Resource | Link |
+|----------|------|
+| Backend Repository | [dojo-countdown-client](https://github.com/danilocasim/dojo-countdown-api) |
+| Live Application | [dojocountdown.vercel.app](https://dojocountdown.vercel.app) |
+| Live API | [dojo-countdown-api.onrender.com](https://dojo-countdown-api.onrender.com) |
+
+
 ## Table of Contents
 
 - [Overview](#overview)
