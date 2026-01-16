@@ -1,24 +1,20 @@
-// ===========================================
-// App Component
-// ===========================================
-
-import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 
 // Public Pages
-import Landing from "./pages/Landing";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Landing from './pages/Landing';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 // Dashboard Pages
-import DashboardLayout from "./components/dashboard/DashboardLayout";
-import Dashboard from "./pages/Dashboard";
-import CountdownNew from "./pages/CountdownNew";
-import CountdownEdit from "./pages/CountdownEdit";
-import Usage from "./pages/Usage";
+import DashboardLayout from './components/dashboard/DashboardLayout';
+import Dashboard from './pages/Dashboard';
+import CountdownNew from './pages/CountdownNew';
+import CountdownEdit from './pages/CountdownEdit';
+import Usage from './pages/Usage';
 
-import { ROUTES } from "./utils/constants";
+import { ROUTES } from './utils/constants';
 
 function App() {
   return (
