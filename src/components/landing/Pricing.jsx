@@ -35,9 +35,9 @@ export function Pricing() {
         <div className="mt-12 text-center">
           <p className="text-gray-500">
             All prices in USD. Need a custom plan?{' '}
-            <a href="#" className="text-primary-600 hover:text-primary-700 font-medium">
+            <button type="button" className="text-primary-600 hover:text-primary-700 font-medium">
               Contact us
-            </a>
+            </button>
           </p>
         </div>
       </Container>

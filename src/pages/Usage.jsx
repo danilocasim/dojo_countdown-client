@@ -12,7 +12,7 @@ import { PLANS } from "../utils/constants";
 
 export function Usage() {
   const { user } = useAuth();
-  const { usage, history, isLoading, fetchUsage, fetchHistory } = useUsage();
+  const { usage, isLoading, fetchUsage, fetchHistory } = useUsage();
 
   useEffect(() => {
     fetchUsage();

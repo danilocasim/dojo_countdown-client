@@ -2,11 +2,10 @@
 // Color Picker Component
 // ===========================================
 
-import React, { useState } from "react";
+import React from "react";
 import { COLOR_PRESETS } from "../../utils/constants";
 
 export function ColorPicker({ label, value, onChange, presets = true }) {
-  const [showCustom, setShowCustom] = useState(false);
 
   return (
     <div className='space-y-2'>

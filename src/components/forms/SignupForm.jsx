@@ -202,13 +202,13 @@ export function SignupForm() {
           />
           <span className='ml-2 text-sm text-gray-600'>
             I agree to the{" "}
-            <a href='#' className='text-primary-600 hover:underline'>
+            <button type='button' className='text-primary-600 hover:underline'>
               Terms of Service
-            </a>{" "}
+            </button>{" "}
             and{" "}
-            <a href='#' className='text-primary-600 hover:underline'>
+            <button type='button' className='text-primary-600 hover:underline'>
               Privacy Policy
-            </a>
+            </button>
           </span>
         </label>
         {errors.agreeTerms && touched.agreeTerms && (

@@ -54,9 +54,9 @@ export function Signup() {
 
           <p className="mt-6 text-center text-sm text-gray-500">
             By signing up, you agree to our{' '}
-            <a href="#" className="text-primary-600 hover:underline">Terms</a>
+            <button type="button" className="text-primary-600 hover:underline">Terms</button>
             {' '}and{' '}
-            <a href="#" className="text-primary-600 hover:underline">Privacy Policy</a>
+            <button type="button" className="text-primary-600 hover:underline">Privacy Policy</button>
           </p>
         </div>
       </main>

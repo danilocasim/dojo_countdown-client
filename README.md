@@ -1,198 +1,389 @@
-# DojoCountdown Frontend MVP
+# 🎨 DojoCountdown Client
 
-A React-based frontend for DojoCountdown - a SaaS platform for generating dynamic countdown timer images for email marketing.
+> Modern React frontend for the DojoCountdown dynamic countdown timer service
+
+[![React](https://img.shields.io/badge/React-18-61DAFB)](https://reactjs.org/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38B2AC)](https://tailwindcss.com/)
+[![React Router](https://img.shields.io/badge/React_Router-6-CA4245)](https://reactrouter.com/)
+
+## 📖 Overview
+
+The DojoCountdown client is a modern, responsive React application that provides an intuitive interface for creating and managing dynamic countdown timer images. Built with React 18, Tailwind CSS, and React Router, it offers a seamless user experience for email marketers and web developers.
+
+### ✨ Key Features
+
+- **🔐 Authentication** - Secure signup/login with JWT
+- **⏱️ Countdown Management** - Create, edit, and delete countdowns
+- **🎨 Live Preview** - Real-time countdown preview
+- **📊 Usage Dashboard** - Track views and plan limits
+- **💎 Plan Management** - Visualize plan features and limits
+- **📱 Responsive Design** - Works on all devices
+- **🎯 Intuitive UI** - Clean, modern interface
+- **⚡ Fast & Optimized** - Built with performance in mind
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ installed
-- npm or yarn package manager
-- DojoCountdown backend running on `http://localhost:3000`
+
+- Node.js 18+
+- npm or yarn
+- DojoCountdown API running (default: `http://localhost:3000`)
 
 ### Installation
 
+1. **Clone the repository**
+
+   ```bash
+   cd dojo-countdown-client
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
+
+The app will open at `http://localhost:3001`
+
+### Build for Production
+
 ```bash
-# 1. Extract the zip file and navigate to the directory
-cd dojo-countdown-frontend
-
-# 2. Install dependencies
-npm install
-
-# 3. Start the development server
-npm start
+npm run build
 ```
 
-The app will open at `http://localhost:3001` (or next available port).
+Built files will be in the `build/` directory.
 
-## 📁 Project Structure
+## 🏗️ Project Structure
 
 ```
-dojo-countdown-frontend/
-├── public/
-│   └── index.html              # HTML template
-├── src/
-│   ├── api/
-│   │   └── client.js           # Centralized API client
-│   ├── components/
-│   │   ├── ui/                 # Reusable UI components
-│   │   │   ├── Alert.jsx
-│   │   │   ├── Button.jsx
-│   │   │   ├── Card.jsx
-│   │   │   ├── Input.jsx
-│   │   │   └── Spinner.jsx
-│   │   ├── layout/             # Layout components
-│   │   │   ├── Container.jsx
-│   │   │   ├── Footer.jsx
-│   │   │   └── Navbar.jsx
-│   │   ├── landing/            # Landing page sections
-│   │   │   ├── Features.jsx
-│   │   │   ├── Hero.jsx
-│   │   │   ├── Pricing.jsx
-│   │   │   └── PricingCard.jsx
-│   │   └── forms/              # Form components
-│   │       ├── LoginForm.jsx
-│   │       └── SignupForm.jsx
-│   ├── context/
-│   │   └── AuthContext.jsx     # Authentication context
-│   ├── hooks/
-│   │   ├── useApi.js           # API request hook
-│   │   ├── useAuth.js          # Auth context hook
-│   │   └── useForm.js          # Form handling hook
-│   ├── pages/
-│   │   ├── Landing.jsx         # Landing page
-│   │   ├── Login.jsx           # Login page
-│   │   └── Signup.jsx          # Signup page
-│   ├── utils/
-│   │   ├── constants.js        # App constants
-│   │   └── validators.js       # Form validators
-│   ├── App.jsx                 # Main app component
-│   ├── index.jsx               # Entry point
-│   └── index.css               # Tailwind CSS
-├── .env                        # Environment variables
-├── package.json
-├── tailwind.config.js
-└── postcss.config.js
+src/
+├── App.jsx                    # Main app component
+├── index.jsx                  # Entry point
+├── index.css                  # Global styles
+├── api/                       # API integration
+│   ├── client.js             # Axios client setup
+│   ├── countdowns.js         # Countdown API calls
+│   ├── render.js             # Render API calls
+│   └── usage.js              # Usage API calls
+├── components/
+│   ├── ui/                   # Reusable UI components
+│   │   ├── Alert.jsx
+│   │   ├── Button.jsx
+│   │   ├── Card.jsx
+│   │   ├── EmptyState.jsx
+│   │   ├── ErrorState.jsx
+│   │   ├── Input.jsx
+│   │   ├── Select.jsx
+│   │   ├── Spinner.jsx
+│   │   └── UpgradeNotice.jsx
+│   ├── layout/               # Layout components
+│   │   ├── Container.jsx
+│   │   ├── Footer.jsx
+│   │   └── Navbar.jsx
+│   ├── landing/              # Landing page sections
+│   │   ├── Hero.jsx
+│   │   ├── Features.jsx
+│   │   ├── Pricing.jsx
+│   │   └── HowItWorks.jsx
+│   ├── dashboard/            # Dashboard components
+│   │   ├── DashboardLayout.jsx
+│   │   └── DashboardNav.jsx
+│   ├── countdown/            # Countdown components
+│   │   ├── CountdownCard.jsx
+│   │   ├── CountdownForm.jsx
+│   │   ├── CountdownList.jsx
+│   │   └── CountdownPreview.jsx
+│   ├── usage/                # Usage components
+│   │   ├── UsageCard.jsx
+│   │   └── UsageMeter.jsx
+│   └── forms/                # Form components
+│       ├── LoginForm.jsx
+│       └── SignupForm.jsx
+├── context/
+│   └── AuthContext.jsx       # Authentication context
+├── hooks/
+│   ├── useAuth.js           # Auth hook
+│   ├── useCountdowns.js     # Countdowns hook
+│   └── useUsage.js          # Usage hook
+├── pages/                    # Page components
+│   ├── Landing.jsx
+│   ├── Login.jsx
+│   ├── Signup.jsx
+│   ├── Dashboard.jsx
+│   ├── CountdownNew.jsx
+│   ├── CountdownEdit.jsx
+│   └── Usage.jsx
+└── utils/
+    ├── constants.js          # App constants
+    └── helpers.js            # Helper functions
 ```
 
-## ⚙️ Configuration
+## 🎯 Features
+
+### Authentication
+
+- **Sign Up**: Create new account with email/password
+- **Login**: Secure authentication with JWT
+- **Auto-logout**: Automatic redirect on session expiry
+- **Protected Routes**: Authentication required for dashboard
+
+### Countdown Management
+
+- **Create Countdowns**: Easy-to-use form with validation
+- **Edit Countdowns**: Update title, date, and styles
+- **Delete Countdowns**: Remove unwanted timers
+- **Live Preview**: See your countdown before saving
+- **Copy Embed Code**: One-click copy HTML/Markdown
+
+### Usage Tracking
+
+- **Current Usage**: View month-to-date statistics
+- **Usage History**: 6-month historical data
+- **Quota Warnings**: Visual alerts when approaching limits
+- **Plan Limits**: Clear display of plan capabilities
+
+### Upgrade Notices
+
+- **Contextual Prompts**: Shown when limits are reached
+- **Plan Comparison**: See features of next tier
+- **Compact Warnings**: Non-intrusive notifications
+
+## 🎨 Styling
+
+The app uses Tailwind CSS for styling with a custom configuration:
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          // ... custom brand colors
+        },
+      },
+    },
+  },
+};
+```
+
+## 🔧 Configuration
 
 ### Environment Variables
 
-Edit `.env` to configure the API URL:
+Create a `.env` file in the root:
 
-```env
+```bash
 REACT_APP_API_URL=http://localhost:3000
+REACT_APP_ENV=development
 ```
 
-## 🎨 Tailwind CSS
+### API Client
 
-This project uses Tailwind CSS with a custom theme. The configuration includes:
+The API client is configured in `src/api/client.js`:
 
-- **Primary colors**: Pink/red accent (#e94560)
-- **Dark colors**: Dark blue/gray for backgrounds (#1a1a2e)
-- **Inter font family**: Clean, modern typography
+```javascript
+import axios from 'axios';
 
-### Responsive Breakpoints
+const api = axios.create({
+  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:3000',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
-```
-sm:  640px   → Mobile landscape
-md:  768px   → Tablets
-lg:  1024px  → Desktops
-xl:  1280px  → Large desktops
-2xl: 1536px  → Extra large screens
+// Automatically attach JWT token
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('accessToken');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
 ```
 
 ## 📱 Pages
 
-| Route | Page | Description |
-|-------|------|-------------|
-| `/` | Landing | Marketing page with hero, features, pricing |
-| `/login` | Login | User authentication |
-| `/signup` | Signup | User registration |
-| `/dashboard` | Dashboard | Placeholder (Phase 7) |
+### Landing Page
 
-## 🔐 Authentication
+- Hero section with CTA
+- Features showcase
+- Pricing table
+- How it works
+- Footer with links
 
-The app uses JWT-based authentication:
+### Dashboard
 
-- **Access Token**: Short-lived (15m), stored in localStorage
-- **Refresh Token**: Long-lived (7d), used to get new access tokens
-- **Auto-refresh**: Tokens are automatically refreshed on 401 errors
+- Overview statistics
+- Active countdowns list
+- Usage meter
+- Quick actions
+- Empty states
 
-## 🧪 API Integration
+### Countdown Management
 
-The frontend connects to these backend endpoints:
+- Create new countdown
+- Edit existing countdown
+- Live preview
+- Embed code generation
+- Style customization
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/v1/auth/signup` | Register new user |
-| POST | `/api/v1/auth/login` | Authenticate user |
-| POST | `/api/v1/auth/logout` | Invalidate session |
-| POST | `/api/v1/auth/refresh` | Refresh access token |
-| GET | `/api/v1/users/me` | Get current user |
+### Usage Page
 
-## 📦 Dependencies
+- Current plan details
+- Usage statistics
+- Historical data
+- Upgrade options
 
-### Production
-- `react` - UI library
-- `react-dom` - React DOM renderer
-- `react-router-dom` - Client-side routing
+## 🎨 Components
 
-### Development
-- `tailwindcss` - Utility-first CSS framework
-- `postcss` - CSS processing
-- `autoprefixer` - CSS vendor prefixes
+### UI Components
 
-## 🛠️ Available Scripts
+All reusable UI components follow consistent design patterns:
+
+```jsx
+// Button.jsx
+<Button variant="primary" size="lg" onClick={handleClick}>
+  Click Me
+</Button>
+
+// Alert.jsx
+<Alert variant="success" dismissible>
+  Countdown created successfully!
+</Alert>
+
+// EmptyState.jsx
+<EmptyState
+  icon="clock"
+  title="No countdowns yet"
+  actionLabel="Create First Countdown"
+  actionTo="/dashboard/countdowns/new"
+/>
+```
+
+### Custom Hooks
+
+```jsx
+// useAuth.js
+const { user, login, logout, isLoading } = useAuth();
+
+// useCountdowns.js
+const { countdowns, fetchCountdowns, createCountdown, deleteCountdown } =
+  useCountdowns();
+
+// useUsage.js
+const { usage, fetchUsage, isLoading } = useUsage();
+```
+
+## 🧪 Testing
 
 ```bash
-# Start development server
-npm start
-
-# Build for production
-npm run build
-
 # Run tests
 npm test
 
-# Eject from Create React App (not recommended)
-npm run eject
+# Run tests in watch mode
+npm test -- --watch
+
+# Generate coverage report
+npm test -- --coverage
 ```
 
-## 🚀 Production Build
+## 🚀 Deployment
+
+### Vercel (Recommended)
 
 ```bash
-# Create optimized build
-npm run build
+# Install Vercel CLI
+npm install -g vercel
 
-# The build folder contains static files ready for deployment
+# Deploy
+vercel
 ```
 
-## 🔧 Troubleshooting
+### Netlify
 
-### CORS Errors
-Make sure the backend has CORS enabled for `http://localhost:3001`.
+1. Connect your Git repository
+2. Set build command: `npm run build`
+3. Set publish directory: `build`
+4. Add environment variables
+5. Deploy
 
-### API Connection Failed
-1. Verify the backend is running on the correct port
-2. Check `REACT_APP_API_URL` in `.env`
-3. Restart the dev server after changing `.env`
+### Build for Static Hosting
 
-### Tailwind Styles Not Working
 ```bash
-# Rebuild Tailwind CSS
 npm run build
 ```
 
-## 📈 Next Steps (Phase 7)
+Upload the `build/` directory to any static hosting service:
 
-- [ ] Dashboard layout
-- [ ] Countdown list view
-- [ ] Create/edit countdown forms
-- [ ] Usage statistics display
-- [ ] Settings page
+- AWS S3 + CloudFront
+- GitHub Pages
+- Surge.sh
+- Firebase Hosting
 
-## 📄 License
+## 🔒 Security
 
-MIT License - feel free to use this for your own projects.
-# dojo_countdown-client
+- ✅ JWT token storage in localStorage
+- ✅ Automatic token refresh
+- ✅ Protected routes
+- ✅ Input validation
+- ✅ XSS prevention
+- ✅ CORS headers
+
+## 🎭 Demo Mode
+
+The app includes demo credentials for testing:
+
+- Email: `demo@dojocountdown.com`
+- Password: `Demo1234`
+
+## 📊 Performance
+
+- Code splitting with React.lazy()
+- Optimized images
+- Lazy loading
+- Memoized components
+- Efficient re-renders
+
+## 🌐 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Write/update tests
+5. Submit a pull request
+
+## 📝 License
+
+This project is licensed under the ISC License.
+
+## 💬 Support
+
+- 📧 Email: support@dojocountdown.com
+- 📚 Documentation: [docs.dojocountdown.com](https://docs.dojocountdown.com)
+- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/dojo-countdown/issues)
+
+## 🙏 Acknowledgments
+
+- React team for the amazing framework
+- Tailwind CSS for the utility-first CSS
+- Heroicons for the icon set
+- Community contributors
+
+---
+
+Made with ❤️ by the DojoCountdown Team
